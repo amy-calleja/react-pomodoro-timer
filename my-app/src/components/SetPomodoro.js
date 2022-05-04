@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import Button from "./Button";
+import Button from './Button';
 
-export default function SetPomodoro() {
+export default function SetPomodoro(props) {
     const [newTimer, setNewTimer] = useState({
         work: 0.3,
         short: 0.2,
@@ -38,6 +38,7 @@ export default function SetPomodoro() {
     
 function handleSubmit(event) {
 event.preventDefault()
+
 }
 
     return(

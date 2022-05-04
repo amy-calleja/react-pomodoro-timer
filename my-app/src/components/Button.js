@@ -1,9 +1,9 @@
-import React, { useCallback } from 'react'
+import React from 'react'
 
 export default function Button(props) {
     return(
     <div className='Button'>
-        <button className={activeClass} onClick={callback}>{title}</button>
+        <button className={props.activeClass} onClick={props.callback}>{props.title}</button>
     </div>
     )
 }
