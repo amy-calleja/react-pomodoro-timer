@@ -43,7 +43,6 @@ event.preventDefault()
  updateExecute(newTimer)
 
 }
-}
     return(
         <div className="form-container">
             <form noValidate>
@@ -55,5 +54,5 @@ event.preventDefault()
             <Button title="Set Timer" callback={handleSubmit} />
             </form>
         </div>
-    )
+    );
 }

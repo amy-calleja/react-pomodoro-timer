@@ -1,4 +1,4 @@
-import React, { createContext } from "react"
+import React, { createContext, useState} from "react"
 
 export const SettingContext =  createContext()
 
@@ -10,6 +10,7 @@ export default function SettingsContextProvider(props) {
 
     function startTimer() {
         setStartAnimate(true)
+    }
 
     function pauseTimer() {
         setStartAnimate(false)
@@ -73,10 +74,9 @@ export default function SettingsContextProvider(props) {
             pauseTimer,
             SettingButton,
             setCurrentTimer,
-            updateExecute,
             children
             }}>
             {props.children}
         </SettingContext.Provider>
-    )
+    );
 }
