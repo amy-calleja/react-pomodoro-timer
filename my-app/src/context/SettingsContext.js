@@ -63,7 +63,19 @@ export default function SettingsContextProvider(props) {
     }
 
     return(
-        <SettingContext.Provider value={{stopTimer, updateExecute}}>
+        <SettingContext.Provider value={{
+            stopTimer, 
+            updateExecute,
+            pomodoro,
+            executing,
+            startAnimate,
+            startTimer,
+            pauseTimer,
+            SettingButton,
+            setCurrentTimer,
+            updateExecute,
+            children
+            }}>
             {props.children}
         </SettingContext.Provider>
     )
