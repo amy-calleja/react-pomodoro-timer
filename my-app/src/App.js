@@ -7,7 +7,7 @@ function App() {
     <div className="App">
     <h1>Pomodoro App</h1>
     <p>Be productive the right way.</p>
-   {/* <SetPomodoro />
+   <SetPomodoro />
    {/*<CountdownCircleTimer />*/}
     </div>
   );

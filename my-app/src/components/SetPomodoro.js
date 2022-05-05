@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
+import { SettingContext } from "../context/SettingsContext";
 import Button from './Button';
 
 export default function SetPomodoro(props) {
+    const {updateExecute} = useContext(SettingContext)
     const [newTimer, setNewTimer] = useState({
         work: 0.3,
         short: 0.2,
@@ -38,9 +40,10 @@ export default function SetPomodoro(props) {
     
 function handleSubmit(event) {
 event.preventDefault()
- //updateExecute(newTimer)
-}
+ updateExecute(newTimer)
 
+}
+}
     return(
         <div className="form-container">
             <form noValidate>
