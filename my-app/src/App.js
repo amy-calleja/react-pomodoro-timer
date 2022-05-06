@@ -1,12 +1,13 @@
 
-import React, { useContext } from "react";
+import React, { Children, useContext } from "react";
 import SetPomodoro from "./components/SetPomodoro";
 import { SettingContext } from "./context/SettingsContext";
 import Button from "./components/Button";
+import CountdownAnimation from "./components/CountdownAnimation";
 
 
 function App() {
-const {pomodoro, executing, setCurrentTimer, SettingButton} = useContext(SettingContext)
+const {pomodoro, executing, setCurrentTimer, SettingButton, children, startAnimate, startTimer, pauseTimer} = useContext(SettingContext)
 
   return (
     <div className="App">
@@ -34,6 +35,21 @@ const {pomodoro, executing, setCurrentTimer, SettingButton} = useContext(Setting
             </li>
           </ul>
           <Button title="Settings" callback={SettingButton}/>
+
+<div className="time-container">
+  <div className="time-wrapper">
+  <CountdownAnimation key={pomodoro} timer={pomodoro} animate={startAnimate}>
+    {children}
+    </CountdownAnimation> 
+  </div>
+  </div>
+
+  <div className="button-wrapper">
+    <Button title="Start" className= {!startAnimate && 'active'} classback={startTimer} />
+   <Button title="Pause" className= {startAnimate && 'active'} classback={pauseTimer} />
+   
+   </div>
+
         </div>
       }
    

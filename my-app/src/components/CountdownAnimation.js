@@ -12,7 +12,7 @@ export default function CountdownAnimation(key = 1, timer = 20, animate = true, 
         key={key} 
         isPlaying={animate} 
         duration={timer * 60} 
-        colors={['#fe6f6b', 0.33]} 
+        colors={[['#fe6f6b', 0.33]]} 
         strokeWidth={6} 
         trailColor="#151932"
         onComplete={ () => {
