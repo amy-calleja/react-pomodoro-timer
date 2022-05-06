@@ -6,7 +6,7 @@ import Button from "./components/Button";
 
 
 function App() {
-const {pomodoro, executing, setCurrentTimer} = useContext(SettingContext)
+const {pomodoro, executing, setCurrentTimer, SettingButton} = useContext(SettingContext)
 
   return (
     <div className="App">
@@ -33,6 +33,7 @@ const {pomodoro, executing, setCurrentTimer} = useContext(SettingContext)
                   callback={() => setCurrentTimer("long")}/>
             </li>
           </ul>
+          <Button title="Settings" callback={SettingButton}/>
         </div>
       }
    
