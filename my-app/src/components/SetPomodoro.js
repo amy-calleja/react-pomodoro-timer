@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { SettingContext } from "../context/SettingsContext";
 import Button from './Button';
 
-export default function SetPomodoro(props) {
+export default function SetPomodoro() {
     const {updateExecute} = useContext(SettingContext)
     const [newTimer, setNewTimer] = useState({
         work: 0.3,

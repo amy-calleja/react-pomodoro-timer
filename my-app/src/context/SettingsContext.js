@@ -30,7 +30,7 @@ export default function SettingsContextProvider(props) {
         setTimerTime(updatedSettings)
     }
 
-    function setCurrentTimer(active_state) {
+    const setCurrentTimer = active_state => {
         updateExecute({
             ...executing,
             active: active_state
