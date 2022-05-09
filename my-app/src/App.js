@@ -1,5 +1,5 @@
 
-import React, { Children, useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import SetPomodoro from "./components/SetPomodoro";
 import { SettingContext } from "./context/SettingsContext";
 import Button from "./components/Button";
@@ -7,7 +7,9 @@ import CountdownAnimation from "./components/CountdownAnimation";
 
 
 function App() {
-const {pomodoro, executing, setCurrentTimer, SettingButton, children, startAnimate, startTimer, pauseTimer} = useContext(SettingContext)
+const {pomodoro, executing, setCurrentTimer, SettingButton, children, startAnimate, startTimer, pauseTimer, updateExecute} = useContext(SettingContext)
+
+useEffect(() => updateExecute(executing), [executing, startAnimate])
 
   return (
     <div className="App">
@@ -34,28 +36,33 @@ const {pomodoro, executing, setCurrentTimer, SettingButton, children, startAnima
                   callback={() => setCurrentTimer("long")}/>
             </li>
           </ul>
+         
           <Button title="Settings" callback={SettingButton}/>
 
-<div className="time-container">
-  <div className="time-wrapper">
-  <CountdownAnimation key={pomodoro} timer={pomodoro} animate={startAnimate}>
-    {children}
-    </CountdownAnimation> 
-  </div>
-  </div>
+          <div className="time-container">
+          <div className="time-wrapper">
+              <CountdownAnimation 
+              key={pomodoro} 
+              timer={pomodoro} 
+              animate={startAnimate}
+               >
+                {children}
+                </CountdownAnimation> 
 
-  <div className="button-wrapper">
-    <Button title="Start" className= {!startAnimate && 'active'} classback={startTimer} />
-   <Button title="Pause" className= {startAnimate && 'active'} classback={pauseTimer} />
-   
-   </div>
 
+                {/* find bugs */}     
+              </div>
+            </div>
+
+          <div className="button-wrapper">
+            <Button title="Start" className= {!startAnimate && 'active'} callback={startTimer} />
+            <Button title="Pause" className= {startAnimate && 'active'} callback={pauseTimer} />
+          
+          </div>
         </div>
-      }
-   
-   {/*<CountdownCircleTimer />*/}
+        }
     
-    </div>
+     </div>
   );
 }
 
